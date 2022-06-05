@@ -16,7 +16,7 @@
 pip install pyupbit
 pip install pybithumb
 pip install opencv-python
-... ect
+... 
 ```
 
 ## 사용 방법
@@ -40,3 +40,8 @@ python main.py --stock_exchange "bithumb" --Access_key "Input Your Access Key"
 ![image](https://user-images.githubusercontent.com/38518648/172057634-54e35e64-f6c7-4e2a-9a5e-9bc26acf4a20.png)
 ![image](https://user-images.githubusercontent.com/38518648/172057637-6d3141f5-9f22-48e5-b536-57ce0c4620f3.png)
 <img src = "https://user-images.githubusercontent.com/38518648/172057693-71ee33e4-a0bd-4124-9fd1-5522e7c77b30.png" width = 50%>
+
+
+### Edge 검출 후 사진
+<img src = "https://user-images.githubusercontent.com/38518648/172057815-dcac01c3-f570-498c-b155-92ae03e441dc.png" width = 50%>
+<img src = "https://user-images.githubusercontent.com/38518648/172057966-21167702-87bd-428e-a820-02195b340af2.png" width = 50%>
