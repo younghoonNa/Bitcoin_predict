@@ -30,4 +30,4 @@ python main.py --stock_exchange "bithumb" --Access_key "Input Your Access Key"
 ![image](https://user-images.githubusercontent.com/38518648/172057628-47185eb5-b71a-4bb5-9fb1-452683e560e3.png)
 ![image](https://user-images.githubusercontent.com/38518648/172057634-54e35e64-f6c7-4e2a-9a5e-9bc26acf4a20.png)
 ![image](https://user-images.githubusercontent.com/38518648/172057637-6d3141f5-9f22-48e5-b536-57ce0c4620f3.png)
-![image](https://user-images.githubusercontent.com/38518648/172057693-71ee33e4-a0bd-4124-9fd1-5522e7c77b30.png)
+<img src = "https://user-images.githubusercontent.com/38518648/172057693-71ee33e4-a0bd-4124-9fd1-5522e7c77b30.png" width = 50%>
