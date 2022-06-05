@@ -10,6 +10,15 @@
 -	Canny Edge 검출 후 모폴로지 팽창 연산 사용
 -	간단한 매수 알고리즘을 통한 자동 매수 기능
 
+## Installation
+
+``` 
+pip install pyupbit
+pip install pybithumb
+pip install opencv-python
+... ect
+```
+
 ## 사용 방법
 예측하고자 하는 거래소를 킨 후 Main.py를 Anaconda Prompt에서 실행시킨다. 이 때 내가 예측하고자 하는 사이트, 발급받은 API 키, 모드를 입력한다.
  
