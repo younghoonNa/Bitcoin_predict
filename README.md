@@ -19,6 +19,11 @@ pip install opencv-python
 ... 
 ```
 
+#### API 발급
+[upbit](https://upbit.com/service_center/open_api_guide)
+[bithumb](https://www.bithumb.com/api_support/management_api)
+
+
 ## 사용 방법
 예측하고자 하는 거래소를 킨 후 Main.py를 Anaconda Prompt에서 실행시킨다. 이 때 내가 예측하고자 하는 사이트, 발급받은 API 키, 모드를 입력한다.
  
