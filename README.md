@@ -20,8 +20,8 @@ pip install opencv-python
 ```
 
 #### API 발급
-[upbit](https://upbit.com/service_center/open_api_guide)
-[bithumb](https://www.bithumb.com/api_support/management_api)
+- [upbit](https://upbit.com/service_center/open_api_guide) API 발급받기
+- [bithumb](https://www.bithumb.com/api_support/management_api) API 발급받기
 
 
 ## 사용 방법
