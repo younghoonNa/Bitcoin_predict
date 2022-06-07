@@ -20,14 +20,13 @@ def runs(
     Access_key = "Input Your Access Key",
     Secret_key = "Input Your Secret Key",
     balance = 10000,
-    screensize = screensize,
     Mode = None
 ):
     Access_key = "Input Your Access Key"
     Secret_key = "Input Your Secret Key"
 
-    title_img, sub_title_img = upbit_title_image(screensize)
-    coin_img, sub_coin_img = upbit_coin_image(screensize)
+    title_img, sub_title_img = upbit_title_image(stock_exchange)
+    coin_img, sub_coin_img = upbit_coin_image(stock_exchange)
 
     if Mode == "dark":
         title_img = 255 - title_img
@@ -60,6 +59,8 @@ def runs(
 
     row_li = np.argmin(title_img, axis=1)
     row_min, row_max = min_idx(row_li)
+
+
 
     title_img = title_img[row_min:row_min + 10]
     sub_title_img = sub_title_img[sub_row_min:sub_row_min + 10]
@@ -118,9 +119,8 @@ def parse_opt():
     parser.add_argument('--stock_exchange', default="upbit", type= str)
     parser.add_argument('--Access_key', default=None, type=str)
     parser.add_argument('--Secret_key', default=None, type=str)
-    parser.add_argument('--Mode', default="dark", type=str)
+    parser.add_argument('--Mode', default="bright", type=str)
     parser.add_argument('--balance', default= 10000, type=str)
-    parser.add_argument('--screensize', default=(1920, 1080), type=tuple)
 
     opt, _ = parser.parse_known_args()
     return opt

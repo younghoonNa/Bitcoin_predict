@@ -1,6 +1,5 @@
 import numpy as np, cv2
 from PIL import ImageGrab
-
 import bithumb
 import upbit
 from filter_use import alp
@@ -21,30 +20,27 @@ user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 
 def runs(
-    stock_exchange = "bithumb",
+    stock_exchange = "upbit",
     Access_key = "GPbxsMmlg9PvWjTqjW8crOixD2XP2kOTkLE5NG5j",
     Secret_key = "9xMxzlZARpYRw0xf7IR8rxxAHlZ8aszXxkH8PoAa",
     balance = 10000,
-    screensize = screensize,
-    Mode = "dark"
+    Mode = None
 ):
     # Mode = "bright"
     Access_key = "GPbxsMmlg9PvWjTqjW8crOixD2XP2kOTkLE5NG5j"
     Secret_key = "9xMxzlZARpYRw0xf7IR8rxxAHlZ8aszXxkH8PoAa"
 
-    if stock_exchange == "upbit": upbit.runs(Access_key, Secret_key, Mode)
-    elif stock_exchange == "bithumb" : bithumb.runs(Access_key, Secret_key, Mode)
-
+    if stock_exchange == "upbit": upbit.runs("upbit", Access_key, Secret_key, Mode)
+    elif stock_exchange == "bithumb" : bithumb.runs("bithumb", Access_key, Secret_key, Mode)
 
 
 def parse_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--stock_exchange', default="bithumb", type= str)
+    parser.add_argument('--stock_exchange', default="upbit", type= str)
     parser.add_argument('--Access_key', default=None, type=str)
     parser.add_argument('--Secret_key', default=None, type=str)
     parser.add_argument('--Mode', default="bright", type=str)
     parser.add_argument('--balance', default= 10000, type=str)
-    parser.add_argument('--screensize', default=(1920, 1080), type=tuple)
 
     opt, _ = parser.parse_known_args()
     return opt

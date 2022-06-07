@@ -343,7 +343,7 @@ alphabets = [(a,"A"), (a2, "A"), (a3, "A"), (a4, "A"), (a5, "A"), (a6, "A"), (a7
 
              (one, "1"), (one1, "1"), (filter12(), "1"),
              (two, "2"), (two2, "2"), (two3, "2"), (filter24(), "2"), (eight, "8"), (nine , "9"),
-             (restart, "restart"), (restart2, "restart"), (filterRestart3(), "restart"),
+             (restart, "restart"), (restart2, "restart"), (filterRestart3(), "restart"), (filterRestart4(), "restart"),
 
              (wa, "WA"), (wa2, "WA"), (filterWA3(), "WA"), (filterWA4(), "WA"), (filterWA5(), "WA"),
              (at, "AT"), (at2, "AT"), (av, "AV"), (filterAV2(), "AV"),  (filterAV3(), "AV"), (filterAV4(), "AV"),

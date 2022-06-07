@@ -131,10 +131,13 @@ def upbit_find_title(image, sub_img, alphabets):
 
                 resize[row, col] = al[temp_x, temp_y]
 
+        # print(resize)
+
         for alpha, beta in alphabets:
             exit = False
 
             if np.array_equal(alpha, resize):
+                # print("============",beta)
                 if beta == "/":
                     exit = True
                     break
