@@ -21,15 +21,16 @@ np.set_printoptions(threshold=np.inf, linewidth=np.inf) # 출력 제한 없음.
 
 def runs(
     stock_exchange = "upbit",
-    Access_key = "GPbxsMmlg9PvWjTqjW8crOixD2XP2kOTkLE5NG5j",
-    Secret_key = "9xMxzlZARpYRw0xf7IR8rxxAHlZ8aszXxkH8PoAa",
+    Access_key = "Input Your Access Key",
+    Secret_key = "Input Your Secret Key",
     balance = 10000,
     Mode = None,
     view = None
 ):
     # Mode = "bright"
-    Access_key = "GPbxsMmlg9PvWjTqjW8crOixD2XP2kOTkLE5NG5j"
-    Secret_key = "9xMxzlZARpYRw0xf7IR8rxxAHlZ8aszXxkH8PoAa"
+    Access_key = "Input Your Access Key"
+    Secret_key = "Input Your Secret Key"
+
 
     if stock_exchange == "upbit": upbit.runs("upbit", Access_key, Secret_key, None, Mode, view)
     elif stock_exchange == "bithumb" : bithumb.runs("bithumb", Access_key, Secret_key, None, Mode, view)
