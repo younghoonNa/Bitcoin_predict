@@ -40,8 +40,8 @@ python main.py --stock_exchange "upbit" --Access_Key "Input Your Key"
 --stock_exchange : 거래소를 지정해주며 upbit와 bihumb 두 개가 있으며 default는 upbit이다.  <br> 
 --Access_key : 해당 거래소에서 발급받은 API키 중 Access key를 넣어준다. <br>
 --Secret_key : 해당 거래소에서 발급받은 API키 중 Secret Key를 넣어준다. 위의 키를 넣어주지 않는다면 거래 창에서 거래가 진행되지 않는다. <br>
---balance : 최대 매수 금액 지정, None으로 지정하고 필요시 
---Mode : bright Mode와 dark 모드가 있으며 업비트에서는 dark모드가 지원된다.<br> 
+--balance : 최대 매수 금액 지정, None으로 지정하고 필요시 <br> 
+--Mode : bright Mode와 dark 모드가 있으며 업비트에서는 dark모드가 지원된다. <br> 
 --view : True / False 를 지정해 줌에 따라 변환 과정을 볼 수 있음.
 해당 그래프의 예측 결과가 상승이면 매수를 진행하며, 하락이면 그대로 프로그램을 종료한다.
 
