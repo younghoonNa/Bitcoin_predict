@@ -19,6 +19,11 @@ pip install opencv-python
 ... 
 ```
 
+- MAC 사용자는 PIL Image 모듈 다운필요
+```
+pip install pillow
+```
+
 #### API 발급
 - [upbit](https://upbit.com/service_center/open_api_guide) API 발급받기
 - [bithumb](https://www.bithumb.com/api_support/management_api) API 발급받기
@@ -28,15 +33,16 @@ pip install opencv-python
 예측하고자 하는 거래소를 킨 후 Main.py를 Anaconda Prompt에서 실행시킨다. 이 때 내가 예측하고자 하는 사이트, 발급받은 API 키, 모드를 입력한다.
  
  ``` python:
-python main.py --stock_exchange "bithumb" --Access_key "Input Your Access Key" 
-      --Secret_key = "Input Your Secret Key" mode = "bright"
+python main.py --stock_exchange "upbit" --Access_Key "Input Your Key"
+   --Secret_key "Input your secret key" --Mode "dark"  --view "True"
 ```
 
 --stock_exchange : 거래소를 지정해주며 upbit와 bihumb 두 개가 있으며 default는 upbit이다.  <br> 
 --Access_key : 해당 거래소에서 발급받은 API키 중 Access key를 넣어준다. <br>
 --Secret_key : 해당 거래소에서 발급받은 API키 중 Secret Key를 넣어준다. 위의 키를 넣어주지 않는다면 거래 창에서 거래가 진행되지 않는다. <br>
+--balance : 최대 매수 금액 지정, None으로 지정하고 필요시 
 --Mode : bright Mode와 dark 모드가 있으며 업비트에서는 dark모드가 지원된다.<br> 
---monitorsize : 모니터의 크기를 넣어주면 해당 모니터의 비율에 따라 출력 이미지를 자동으로 지정한다. Default는 (1920,1080)이다. <br>
+--view : True / False 를 지정해 줌에 따라 변환 과정을 볼 수 있음.
 해당 그래프의 예측 결과가 상승이면 매수를 진행하며, 하락이면 그대로 프로그램을 종료한다.
 
 <br>
