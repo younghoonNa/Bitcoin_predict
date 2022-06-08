@@ -278,6 +278,7 @@ alphabets = [(a,"A"), (a2, "A"), (a3, "A"), (a4, "A"), (a5, "A"), (a6, "A"), (a7
 
              (g, "G"), (g2, 'G'), (g3, "G"), (g4, "G"), (g5, "G"), (g6, "G"), (g7, "G"), (g8, "G"), (g9, "G"),
              (filterG10(), "G"), (filterG11(), "G"), (filterG12(), "G"), (filterG13(), "G"), (filterG14(), "G"),
+             (filterG15(), "G"),
 
              (h, "H"), (h2, "H"), (h3, "H"), (h4, "H"), (h5, "H"), (filterH6(), "H"), (filterH7(), "H"),
 
@@ -292,7 +293,7 @@ alphabets = [(a,"A"), (a2, "A"), (a3, "A"), (a4, "A"), (a5, "A"), (a6, "A"), (a7
              (l, "L"), (l2 ,"L"), (l3, "L"), (l4, "L"),
              (m, 'M'), (m2, "M"), (m3, "M"), (m4, "M"),  (m5, "M"), (m6, "M"), (m7, "M"), (m8, "M"), (m9, "M"), (m10, "M"),
              (m11, "M"), (filterM12(), "M"), (filterM13(), "M"),(filterM14(), "M"), (filterM15(), "M"),(filterM16(), "M"),
-             (filterM17(), "M"), (filterM18(), "M"), (filterM19(), "M"),
+             (filterM17(), "M"), (filterM18(), "M"), (filterM19(), "M"), (filterM20(), "M"),  (filterM21(), "M"),
 
              (n, "N"), (n2, "N"), (n3, "N"), (n4, "N"), (n5, "N"), (n6, "N"), (n7, "N"), (n8, "N"), (n9, "N"), (n10, "N"),
              (filterN11(), "N"), (filterN12(), "N"), (filterN13(), "N"), (filterN14(), "N"),(filterN15(), "N"),
@@ -321,7 +322,9 @@ alphabets = [(a,"A"), (a2, "A"), (a3, "A"), (a4, "A"), (a5, "A"), (a6, "A"), (a7
 
              (v, "V"), (v2, "V"), (v3, "V"), (v4, "V"), (v5, "V"), (v6, "V"), (v7, "V"), (v8, "V"), (v9, "V"), (v10, "V"),
              (v11, "V"), (filterV12(), "V"),  (filterV13(), "V"), (filterV14(), "V"), (filterV15(), "V"),(filterV16(), "V"),
-             (filterV17(), "V"), (filterV18(), "V"),  (filterV19(), "V"), (filterV20(), "V"), (filterV15(), "V"),(filterV16(), "V"),
+             (filterV17(), "V"), (filterV18(), "V"),  (filterV19(), "V"), (filterV20(), "V"), (filterV21(), "V"),
+             (filterV16(), "V"),
+
 
              (w, "W"), (w2, "W"), (w3, "W"), (w4, "W"), (w5, "W"), (w6, "W"), (w7, "W"), (w8, "W"), (w9, "W"), (filterW10(), "W"),
              (filterW11(), "W"), (filterW12(), "W"),  (filterW13(), "W"),

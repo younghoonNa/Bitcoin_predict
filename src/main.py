@@ -16,22 +16,23 @@ import pybithumb
 
 np.set_printoptions(threshold=np.inf, linewidth=np.inf) # 출력 제한 없음.
 
-user32 = ctypes.windll.user32
-screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
+# user32 = ctypes.windll.user32
+# screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 
 def runs(
     stock_exchange = "upbit",
     Access_key = "GPbxsMmlg9PvWjTqjW8crOixD2XP2kOTkLE5NG5j",
     Secret_key = "9xMxzlZARpYRw0xf7IR8rxxAHlZ8aszXxkH8PoAa",
     balance = 10000,
-    Mode = None
+    Mode = None,
+    view = None
 ):
     # Mode = "bright"
     Access_key = "GPbxsMmlg9PvWjTqjW8crOixD2XP2kOTkLE5NG5j"
     Secret_key = "9xMxzlZARpYRw0xf7IR8rxxAHlZ8aszXxkH8PoAa"
 
-    if stock_exchange == "upbit": upbit.runs("upbit", Access_key, Secret_key, Mode)
-    elif stock_exchange == "bithumb" : bithumb.runs("bithumb", Access_key, Secret_key, Mode)
+    if stock_exchange == "upbit": upbit.runs("upbit", Access_key, Secret_key, None, Mode, view)
+    elif stock_exchange == "bithumb" : bithumb.runs("bithumb", Access_key, Secret_key, None, Mode, view)
 
 
 def parse_opt():
@@ -39,8 +40,9 @@ def parse_opt():
     parser.add_argument('--stock_exchange', default="upbit", type= str)
     parser.add_argument('--Access_key', default=None, type=str)
     parser.add_argument('--Secret_key', default=None, type=str)
+    parser.add_argument('--balance', default= 10000, type=int)
     parser.add_argument('--Mode', default="bright", type=str)
-    parser.add_argument('--balance', default= 10000, type=str)
+    parser.add_argument('--view', default="False", type=str)
 
     opt, _ = parser.parse_known_args()
     return opt

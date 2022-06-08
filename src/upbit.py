@@ -12,21 +12,25 @@ import pyupbit
 
 np.set_printoptions(threshold=np.inf, linewidth=np.inf) # 출력 제한 없음.
 
-user32 = ctypes.windll.user32
-screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
-
 def runs(
     stock_exchange = "upbit",
     Access_key = "Input Your Access Key",
     Secret_key = "Input Your Secret Key",
     balance = 10000,
-    Mode = None
+    Mode = None,
+    view = None
 ):
     Access_key = "Input Your Access Key"
     Secret_key = "Input Your Secret Key"
 
-    title_img, sub_title_img = upbit_title_image(stock_exchange)
-    coin_img, sub_coin_img = upbit_coin_image(stock_exchange)
+    title_img, sub_title_img = upbit_title_image()
+    coin_img, sub_coin_img = upbit_coin_image()
+
+
+    if view == 'True':
+        cv2.imshow("first_title_img", title_img)
+        cv2.imshow("first_coin_img", coin_img)
+
 
     if Mode == "dark":
         title_img = 255 - title_img
@@ -40,6 +44,10 @@ def runs(
 
     title_img = contrast_max(title_img, threshold)
     sub_title_img = contrast_max(sub_title_img, threshold)
+
+    if view == 'True':
+        cv2.imshow("change threshold title_image", title_img)
+        cv2.imshow("change threshold coin_image", coin_img)
 
     if Mode == "dark":
         if (title_img[:, 0:20] == 255).all():
@@ -65,7 +73,7 @@ def runs(
     title_img = title_img[row_min:row_min + 10]
     sub_title_img = sub_title_img[sub_row_min:sub_row_min + 10]
 
-    title, use_sub = upbit_find_title(title_img, sub_title_img, alp())
+    title, use_sub = upbit_find_title(title_img, sub_title_img, alp(), view)
     title = "KRW-" + title
     print(title)
 
@@ -90,7 +98,7 @@ def runs(
     # coin 예측 Algorithm 구현
     ####################################################
     if use_sub: coin_img = sub_coin_img
-    investment = coin__pred_algorithm(coin_img, Mode)
+    investment = coin__pred_algorithm(coin_img, Mode, view)
     if not investment:
         print("하락 예측입니다.")
         return 0

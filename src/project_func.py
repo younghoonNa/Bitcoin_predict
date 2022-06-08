@@ -107,7 +107,7 @@ def contrast_max(image, threshold):
 
     return  image
 
-def upbit_find_title(image, sub_img, alphabets):
+def upbit_find_title(image, sub_img, alphabets, view):
     use_sub = False
     col_num = 0
     event_name = ""
@@ -131,13 +131,16 @@ def upbit_find_title(image, sub_img, alphabets):
 
                 resize[row, col] = al[temp_x, temp_y]
 
-        # print(resize)
+        if view == "True":
+            print(resize)
 
         for alpha, beta in alphabets:
             exit = False
 
             if np.array_equal(alpha, resize):
-                # print("============",beta)
+
+                if view == "True":
+                    print("============",beta)
                 if beta == "/":
                     exit = True
                     break
@@ -162,7 +165,7 @@ def upbit_find_title(image, sub_img, alphabets):
     return event_name, use_sub
 
 
-def bithumb_find_title(image, sub_img, alphabets):
+def bithumb_find_title(image, sub_img, alphabets, view):
     col_num = 0
     event_name = ""
     while col_num < image.shape[1]:
@@ -189,6 +192,8 @@ def bithumb_find_title(image, sub_img, alphabets):
 
                 resize[row, col] = al[temp_x, temp_y]
 
+        if view == "True":
+            print(resize)
 
         for alpha, beta in alphabets:
             exit = False
@@ -197,6 +202,8 @@ def bithumb_find_title(image, sub_img, alphabets):
             alpha = alpha.reshape(10, -1)
 
             if np.array_equal(alpha, resize):
+                if view == "True":
+                    print("=======", beta)
                 if beta == "/":
                     exit = True
                     break
@@ -212,15 +219,18 @@ def bithumb_find_title(image, sub_img, alphabets):
 
     return event_name
 
-def coin__pred_algorithm(image, Mode):
+def coin__pred_algorithm(image, Mode, view):
 
     if Mode != "dark":
         image = 255 - image
     else: image = contrast_max(image, 120)
 
-    black_mask = cv2.inRange(image, (0, 0,0), (20, 20, 20))
-    white_mask = cv2.inRange(image, (250, 250, 250), (255, 255, 255))
-    cyan_mask = cv2.inRange(image, (110, 110, 0), (255, 255, 50))
+    if view == "True":
+        cv2.imshow("image_black", image)
+
+    black_mask = cv2.inRange(image, (0, 0,0), (30, 30, 30))
+    white_mask = cv2.inRange(image, (220, 220, 220), (255, 255, 255))
+    cyan_mask = cv2.inRange(image, (110, 110, 0), (255, 255, 30))
     magenta_mask = cv2.inRange(image, (110, 0, 110), (255, 50, 255))
 
     if Mode == "dark": white_mask = black_mask
@@ -239,6 +249,10 @@ def coin__pred_algorithm(image, Mode):
 
 
     img_mask = cv2.merge([white_mask, cyan_mask, magenta_mask])
+
+    if view == "True":
+        cv2.imshow("image mask", img_mask)
+        cv2.waitKey(0)
     # # print("20 Days Mean : " ,cyan_mask[:, -1].argmax()) # 20일선 위치
     # # print("224 Days Mean : " ,magenta_mask[:, -1].argmax()) # 224일선 위치
     # # print("Price Mean : " ,white_mask[:, -1].argmax()) # 현재 가격
@@ -264,15 +278,20 @@ def coin__pred_algorithm(image, Mode):
 
     return False
 
-def bithumb_coin__pred_algorithm(image, Mode):
+def bithumb_coin__pred_algorithm(image, Mode, view):
     image = 255 - image
 
     # Blur + Canny Edge를 통한 잡음 제거 후 엣지 검출
     Big_img = cv2.GaussianBlur(image, ksize=(3, 3), sigmaY=0, sigmaX=0)
     Big_img = cv2.Canny(Big_img, 220, 255)
 
+    if view == "True":
+        cv2.imshow("Big image", Big_img)
 
     bit_image = cv2.bitwise_and(image, image, mask=Big_img)     # bitwise_and 해서 다시 칼라 입히기
+
+    if view == "True":
+        cv2.imshow("Bit image", bit_image)
 
     image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) # 모폴로지 팽창 연산을 통해 선 굵게 만들기
     mask = np.array([0, 0, 1, 0, 0,
@@ -282,6 +301,9 @@ def bithumb_coin__pred_algorithm(image, Mode):
                      0, 0, 1, 0, 0]).astype('uint8')
     mask = mask.reshape(5, 5).astype('uint8')
     dst = cv2.dilate(bit_image, mask)
+
+    if view == "True":
+        cv2.imshow("Mopology", dst)
 
     dst = np.array(dst, 'float32')
     dst = (dst - 50) * 255
@@ -301,8 +323,10 @@ def bithumb_coin__pred_algorithm(image, Mode):
     bolinger_mask = cv2.merge([zero_img, yellow_mask, yellow_mask])
 
     s = cv2.add(img_mask, bolinger_mask)
-    cv2.imshow("sd,", s)
-    cv2.waitKey(0)
+
+    if view == "True":
+        cv2.imshow("sd,", s)
+        cv2.waitKey(0)
 
     current_price = white_mask[:, -1].argmax()
     days20 = green_mask[:, -1].argmax()

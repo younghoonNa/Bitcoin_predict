@@ -12,26 +12,33 @@ import pybithumb
 
 np.set_printoptions(threshold=np.inf, linewidth=np.inf) # 출력 제한 없음.
 
-user32 = ctypes.windll.user32
-screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
+# user32 = ctypes.windll.user32
+# screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 
 def runs(
     stock_exchange = "bithumb",
     Access_key = "Input Your Access Key",
     Secret_key = "Input Your Secret Key",
     balance = 10000,
-    screensize = screensize,
-    Mode = None
+    Mode = None,
+    view = None
 ):
     Access_key = "Input Your Access Key"
     Secret_key = "Input Your Secret Key"
 
-    title_img, sub_title_img = bithumb_title_image(screensize)
-    coin_img,sub_coin_img = bithumb_coin_image(screensize)
-    title_img = sub_title_img
-    coin_img = sub_coin_img
+    title_img, sub_title_img = bithumb_title_image()
+    coin_img,sub_coin_img = bithumb_coin_image()
+    # title_img = sub_title_img
+    # coin_img = sub_coin_img
+
+    if view == "True":
+        cv2.imshow("title_img", title_img)
+        cv2.imshow("coin_img", coin_img)
+
 
     title_img = contrast_max(title_img, 150)
+
+
 
     if Mode == "dark":
         if (title_img[:, 0:20] == 255).all():
@@ -51,8 +58,11 @@ def runs(
 
     title_img = title_img[row_min+1:row_min + 13]
 
-    title = bithumb_find_title(title_img, sub_title_img, alp())
+    title = bithumb_find_title(title_img, sub_title_img, alp(), view)
     print(title)
+
+    if view == "True":
+        cv2.imshow("title_img", title_img)
 
     if not (title in pybithumb.get_tickers()):
         print(title, "에 해당하는 종목이 없습니다.")
@@ -63,7 +73,7 @@ def runs(
     ####################################################
     # coin 예측 Algorithm 구현
     ####################################################
-    investment = bithumb_coin__pred_algorithm(coin_img, Mode)
+    investment = bithumb_coin__pred_algorithm(coin_img, Mode, view)
     if not investment:
         print("하락 예측입니다.")
         return 0

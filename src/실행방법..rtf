@@ -1,9 +1,13 @@
-1. 원하는 거래소를 들어간다.
+1. 원하는 거래소를 들어간다. 차트 변경에서 캔들 -> 선으로 변경시킨다.
+
 2. croodinates.py 를 실행시킨다. 이때 --stock_exchange "거래소" 를 적는다. 빗썸이면 bithumb, 업비트면 upbit를 넣는다.
+
 3. Anaconda Prompt를 통해 main.py를 실행시킨다.
 main.py에 들어갈 수 있는 옵션은 다음과 같다.
 --stock_exchange : 거래소를 지정해주며 upbit와 bihumb 두 개가 있으며 default는 upbit이다. 
 --Access_key : 해당 거래소에서 발급받은 API키 중 Access key를 넣어준다. 
 --Secret_key : 해당 거래소에서 발급받은 API키 중 Secret Key를 넣어준다.
 위의 키를 넣어주지 않는다면 거래 창에서 거래가 진행되지 않는다.
+--balance : 매수에 사용될 최대 금액을 적는다. 여기서는 None으로 두고 사용하지 않는다.
 --Mode : bright Mode와 dark 모드가 있으며 업비트에서는 dark모드가 지원된다.
+--view : "True" / "False" 를 지정가능하며 True로 준다면 변환과정을 보여준다.
